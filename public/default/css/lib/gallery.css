@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+#overlay{
+	position:absolute;
+	background: url(../../images/overlay.png);
+	z-index:110;
+	border: 2px solid #000000;
+	padding: 100px 70px 40px 270px;
+}
+
+#gallery{
+	background: url(../../images/fotorahmen.jpg) no-repeat;
+	padding:0px;
+	/*position:absolute;*/
+	width:808px;
+	height:632px;
+	z-index:120;
+	/*margin-left:-40px;*/
+	/*top:0px;*/
+}
+
+#bigimg{
+	/*background:url(images/fotorahmen.jpg) no-repeat;*/
+	clear:both;
+	padding:3px 4px 0px 4px;
+	z-index:130;
+}
+
+#close{
+	float:right;
+	width:80px;
+	margin-right:10px;
+	margin-top:5px;
+	z-index:130;
+}
+
+#prev{
+	float:left;
+	padding: 5px 20px 4px 20px;
+}
+
+#next{
+	float:left;
+	padding: 5px 20px 4px 20px;
+}
+
+#overlay a:hover{
+	color:#161603;
+}

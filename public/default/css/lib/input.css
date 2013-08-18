@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+.input{
+	background-color:#000000;
+	border: 1px outset #696356;
+	color:#BCB4A5;
+	padding: 0px 10px;
+}
+
+.input:hover{
+	background-color:#161603;
+	cursor: pointer;
+}
+
+.input {
+	margin-left: 10px;
+	margin-right: 10px;
+}

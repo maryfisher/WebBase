@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+.clear {
+	clear:both;
+}
+
+img {
+	border:none;
+}
+
+.italic{
+	font-style:italic;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+.rfloat{
+	float:right;
+}
+
+.lfloat{
+	float:left;
+}
