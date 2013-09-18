@@ -26,7 +26,7 @@ class FrontController{
 	
 	public function handleRequest() {
 		$this->request = new Request();
-		$baseUrl = dirname($_SERVER['PHP_SELF']) == PATH_SEPARATOR ? "" : dirname($_SERVER['PHP_SELF']);
+		$baseUrl = dirname($_SERVER['SCRIPT_NAME']) == DIRECTORY_SEPARATOR ? "" : dirname($_SERVER['SCRIPT_NAME']);
 		View::setBaseUrl($baseUrl);
 		$lang = isset($_GET['lang']) ? $_GET['lang'] : "";
 		View::setLangPath($lang);

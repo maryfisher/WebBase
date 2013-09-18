@@ -18,7 +18,7 @@ class Request {
 		$url = substr($_SERVER['REQUEST_URI'], 1);
 		$urlParts = explode('/', $url);
 		
-		$baseUrl = dirname($_SERVER['PHP_SELF']);
+		$baseUrl = dirname($_SERVER['SCRIPT_NAME']);
 		$queryStr = $_SERVER['QUERY_STRING'] != "" ? "?" . $_SERVER['QUERY_STRING'] : "";
 		
 		if(in_array($queryStr, $urlParts)){
