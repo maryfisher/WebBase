@@ -11,7 +11,9 @@ class View{
 	
 	private $Helper;
 	private $Scripts = array();
+	private $LibScripts = array();
 	private $Styles = array();
+	private $LibStyles = array();
 	private $Title;
 	private $bodyTop = "BodyTop";
 	private $bodyBottom = "BodyBottom";
@@ -47,12 +49,20 @@ class View{
 		return self::$instance;
 	}
 	
-	public function assignScript($script) {
-		array_push($this->Scripts, $script);
+	public function assignScript($script, $isLib = false) {
+		if(!$isLib){
+			array_push($this->Scripts, $script);
+		}else {
+			array_push($this->LibScripts, $script);
+		}
 	}
 	
-	public function assignStyle($style) {
-		array_push($this->Styles, $style);
+	public function assignStyle($style, $isLib = false) {
+		if(!$isLib){
+			array_push($this->Styles, $style);
+		}else {
+			array_push($this->LibStyles, $style);
+		}
 	}
 	
 	public function assignTitle($title) {
@@ -62,6 +72,9 @@ class View{
 	private function getScripts() {
 		
 		$scriptString = "";
+		foreach($this->LibScripts as $index => $script) {
+			$scriptString .= '<script type="text/javascript" charset="utf-8" src="' . self::$baseUrl . "/public/lib/js/" . $script . '.js"></script>';
+		}
 		foreach($this->Scripts as $index => $script) {
 			$scriptString .= '<script type="text/javascript" charset="utf-8" src="' . self::$baseUrl . self::$jsPath . $script . '.js"></script>';
 		}
@@ -71,6 +84,9 @@ class View{
 	
 	private function getStyles() {
 		$styleString = "";
+		foreach($this->LibStyles as $index => $style) {
+			$styleString .= '<style type="text/css" title="currentStyle">@import "' . self::$baseUrl . "/public/lib/css/" . $style.'.css";</style>';
+		}
 		foreach($this->Styles as $index => $style) {
 			$styleString .= '<style type="text/css" title="currentStyle">@import "' . self::$baseUrl . self::$cssPath . $style.'.css";</style>';
 		}
@@ -163,10 +179,12 @@ class View{
 		self::$cssPath = DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR . self::$layoutPath . "css" . DIRECTORY_SEPARATOR;
 		self::$downloadPath = DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR . self::$layoutPath . "downloads" . DIRECTORY_SEPARATOR;*/
 		self::$layoutPath = $path . "/";
+		
 		self::$imgPath = "/" . "public" . "/" . self::$layoutPath . "images" . "/";
 		self::$jsPath = "/" . "public" . "/" . self::$layoutPath . "js" . "/";
 		self::$cssPath = "/" . "public" . "/" . self::$layoutPath . "css" . "/";
 		self::$downloadPath = "/" . "public" . "/" . self::$layoutPath . "downloads" . "/";
+		
 		self::$layoutPath = self::$layoutPath . self::$langPath;
 	}
 	

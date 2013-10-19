@@ -47,7 +47,7 @@ class Database {
 		$result = mysql_query($query, $this->link) or die (print($query));
 		//(print("Die Anfrage kann zur Zeit leider nicht durchgef&uuml;hrt werden."));
 			
-		if (ereg("SELECT", $query)) {
+		if (preg_match("/SELECT/", $query)) {
 			$this->rows = mysql_num_rows($result);
 		}
 		

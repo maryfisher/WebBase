@@ -22,7 +22,7 @@ var Gallery = {
 		
 		var gallery = '<div id="overlay" style=""><div id="gallery" ><img id="bigimg" src="" /></div></div>';
 
-		$('header').insert({before:gallery});
+		ev.element().up().up().insert({before:gallery});
 		$('bigimg').src= url + bigimg;
 		
 		$('gallery').insert({top:'<a href="javascript:"><span id="close">Schlie&szlig;en</span></a>'});

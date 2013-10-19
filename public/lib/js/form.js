@@ -40,7 +40,8 @@ var MessageForm = {
 		var formelm = ev.element().up('form');
 		
 		MessageForm.formid = MessageForm.getID(formelm, "contact");
-		$('answer' + MessageForm.formid).innerHTML = "Pr&uuml;fe Angaben ...";
+		/*$('answer' + MessageForm.formid).innerHTML = "Pr&uuml;fe Angaben ...";*/
+		$('answer' + MessageForm.formid).innerHTML = "Checking input ...";
 		
 		var checklist = MessageForm.checkForm(formelm);
 		
@@ -56,14 +57,16 @@ var MessageForm = {
 				MessageForm.clearForm(formelm);
 			}
   			
-  			$('answer' + MessageForm.formid).innerHTML = "Schicke Nachricht ... ";
+  			/*$('answer' + MessageForm.formid).innerHTML = "Schicke Nachricht ... ";*/
+  			$('answer' + MessageForm.formid).innerHTML = "Sending message ... ";
   			MessageForm.prepareRequest("send/", "post", MessageForm.handler, Input);
     	}else{
       		for(var i = 0;i < checklist.length; i++){
         		var errorspan = checklist[i].next('span');
         		errorspan.show();
       		}
-			$('answer' + MessageForm.formid).innerHTML = "Bitte &uuml;berpr&uuml;fe deine Angaben!";
+			/*$('answer' + MessageForm.formid).innerHTML = "Bitte &uuml;berpr&uuml;fe deine Angaben!";*/
+			$('answer' + MessageForm.formid).innerHTML = "Please check your input!";
     	}
 	},
 	
